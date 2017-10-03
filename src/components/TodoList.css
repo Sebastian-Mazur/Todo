@@ -1,0 +1,19 @@
+.container {
+    width: 80%;
+    max-width: 1000px;    
+    box-shadow: 2px 2px 5px #757272;    
+}
+
+
+.todoList {
+    list-style: none;
+    display: flex;
+    padding: 15px;
+}
+
+.itemList {
+    flex: 1;
+    text-align: center;
+    border: 1px solid #8F5D5D;
+    padding: 20px;
+}
