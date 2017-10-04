@@ -49,11 +49,14 @@ class App extends React.Component {
         return (
             <div className={style.TodoApp}>                
                 <Title numberOfTasks={this.state.numberOfTasks} />
-                <TodoForm handleChange={this.handleChange} value={this.state.value} handleSubmit={this.handleSubmit}/>                
+                <TodoForm />                
                 <TodoList data={this.state.data} />
-            </div>
+            </div>            
         );
+        console.log(this.state.value);
     }    
 }
 
 export default App;
+
+// onSubmit = {() => this.handleSubmit(value)} value = { this.state.value } onChange= {() => this.handleSubmit(value)}
