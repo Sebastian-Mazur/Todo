@@ -2,15 +2,14 @@ import React from 'react';
 
 const TodoForm = (props) => {
     return (
-        <form onSubmit={() => props.onSubmit()}>            
+        <form>                       
             <label>
                 Zadanie:            
-                <input type="text" value={props.value} onChange={props.value} />    console.log(props.value);      
+            <input type='text' value={''} onChange={event => props.changeValue(event)} />  
             </label>
-            <input type="submit" value="Submit"/>            
+            <button onClick={event => {event.preventDefault(); props.addTodo();}}>Dodaj zadanie!</button>          
         </form>
-    );
-    console.log(props.value);
+    );    
 }
 
 

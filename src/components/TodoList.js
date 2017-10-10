@@ -7,12 +7,11 @@ const TodoList = (props) => {
         <div className={style.container}>
             <ul className={style.todoList}>
                 {props.data.map(list => {
-                    return <li key={list.id} className={style.itemList}>{list.text}</li>
-                })}
+                    return <li className={style.itemList} key={list.id}>{list.text}</li>
+                })}                         
             </ul>
         </div>
     );
 }
 
 export default TodoList;
-

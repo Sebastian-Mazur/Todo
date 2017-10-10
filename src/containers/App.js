@@ -10,12 +10,11 @@ class App extends React.Component {
         super(props);
         this.state = {
             data: [{
-                id: '',
-                text: ''
-            }],
-            numberOfTasks: 0,
-            value: ''
-        };
+                id: 145,
+                text: 'Lorem Ipsum'                
+                }],  
+            numberOfTasks: 0                                   
+        };        
     }
 
     addTodo(val) {
@@ -33,30 +32,25 @@ class App extends React.Component {
         const remainder = this.state.data.filter(todo => todo.id !== id);
         this.setState({data: remainder});
         this.setState({numberOfTasks: this.state.numberOfTasks - 1});
-        return (this.numberOfTasks);
-    }
-
-    handleChange(event) {
-        this.setState({event: this.state.value});
-    }
-
-    handleSubmit(event) {
-        alert('A name was submitted: ' + this.state.value);
-        event.preventDefault();
+        return (this.numberOfTasks);        
+    } 
+    
+    changeValue(event) {
+        this.setState({text: event.target.value})
     }
 
     render() {
         return (
             <div className={style.TodoApp}>                
                 <Title numberOfTasks={this.state.numberOfTasks} />
-                <TodoForm />                
+                <TodoForm 
+                    addTodo={val => this.addTodo(val)} 
+                    data={this.state.data} 
+                    changeValue={event => this.changeValue(event)}/>
                 <TodoList data={this.state.data} />
             </div>            
-        );
-        console.log(this.state.value);
+        );        
     }    
 }
 
 export default App;
-
-// onSubmit = {() => this.handleSubmit(value)} value = { this.state.value } onChange= {() => this.handleSubmit(value)}
