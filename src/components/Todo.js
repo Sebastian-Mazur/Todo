@@ -1,7 +1,10 @@
 import React from 'react';
+import style from './TodoList.css';
 
 const Todo = (props) => {
-    <li key={props.idKey}>{props.text}</li>
+    <div>
+        <li className={style.itemList}></li>
+    </div>
 }
 
 export default Todo;

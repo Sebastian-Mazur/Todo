@@ -9,11 +9,9 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: [{
-                id: 145,
-                text: 'Lorem Ipsum'                
-                }],  
-            numberOfTasks: 0                                   
+            data: [],  
+            numberOfTasks: 0,
+            text: ''                                   
         };        
     }
 
@@ -25,18 +23,17 @@ class App extends React.Component {
         const data = [...this.state.data, todo];
         this.setState({data});
         this.setState({numberOfTasks: this.state.numberOfTasks + 1});
-        return (this.numberOfTasks);
+        this.setState({text: ''});
     }
 
     removeTodo(id) {
         const remainder = this.state.data.filter(todo => todo.id !== id);
         this.setState({data: remainder});
-        this.setState({numberOfTasks: this.state.numberOfTasks - 1});
-        return (this.numberOfTasks);        
+        this.setState({numberOfTasks: this.state.numberOfTasks - 1});              
     } 
     
     changeValue(event) {
-        this.setState({text: event.target.value})
+        this.setState({text: event})
     }
 
     render() {
@@ -45,9 +42,13 @@ class App extends React.Component {
                 <Title numberOfTasks={this.state.numberOfTasks} />
                 <TodoForm 
                     addTodo={val => this.addTodo(val)} 
-                    data={this.state.data} 
-                    changeValue={event => this.changeValue(event)}/>
-                <TodoList data={this.state.data} />
+                    text={this.state.text} 
+                    changeValue={event => this.changeValue(event)}
+                    />
+                <TodoList 
+                    data={this.state.data}
+                    removeTodo={todoID => this.removeTodo(todoID)}
+                    />
             </div>            
         );        
     }    
