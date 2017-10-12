@@ -4,7 +4,7 @@ import Todo from './Todo';
 
 class TodoList extends React.Component {
     get tasks() {
-        return this.props.data.map(list => <Todo key={list.id} list={list} />);
+        return this.props.data.map(list => <Todo key={list.id} list={list} removeTodo={this.props.removeTodo}/>);
     }
 
     render() { 
@@ -20,5 +20,3 @@ class TodoList extends React.Component {
 
 export default TodoList;
 
-// removeTodo = { this.props.removeTodo }
-//     < button onClick= { props.removeTodo(props.list.id) } > Usuń zadanie</button >
