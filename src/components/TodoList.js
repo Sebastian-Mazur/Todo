@@ -7,7 +7,12 @@ const TodoList = (props) => {
         <div className={style.container}>
             <ul className={style.todoList}>
                 {props.data.map(list => {
-                    return <li className={style.itemList} key={list.id}>{list.text}<button onClick={key => {props.removeTodo(list.id) }}>Usuń zadanie</button></li>              
+                    <Todo 
+                        key={list.id}
+                        id={list.id} 
+                        remove={props.removeTodo} 
+                        text={list.text}
+                    />                                  
                 })}                         
             </ul>
         </div>
@@ -15,4 +20,3 @@ const TodoList = (props) => {
 }
 
 export default TodoList;
-
