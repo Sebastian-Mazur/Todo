@@ -46,8 +46,7 @@ class App extends React.Component {
                     changeValue={event => this.changeValue(event)}
                     />
                 <TodoList 
-                    data={this.state.data}
-                    text={this.state.text}
+                    data={this.state.data}                    
                     removeTodo={todoID => this.removeTodo(todoID)}
                     />
             </div>            
