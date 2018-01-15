@@ -9,8 +9,7 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: [],  
-            numberOfTasks: 0,
+            data: [],           
             text: ''                                   
         };        
     }
@@ -21,15 +20,13 @@ class App extends React.Component {
             id: uuid.v4(),
         };
         const data = [...this.state.data, todo];
-        this.setState({data});
-        this.setState({numberOfTasks: this.state.numberOfTasks + 1});
+        this.setState({data});        
         this.setState({text: ''});
     }
 
     removeTodo(id) {
         const remainder = this.state.data.filter(todo => todo.id !== id);
-        this.setState({data: remainder});
-        this.setState({numberOfTasks: this.state.numberOfTasks - 1});              
+        this.setState({data: remainder});                      
     } 
     
     changeValue(event) {
@@ -39,15 +36,15 @@ class App extends React.Component {
     render() {
         return (
             <div className={style.TodoApp}>                
-                <Title numberOfTasks={this.state.numberOfTasks} />
+                <Title numberOfTasks={this.state.data.length} />
                 <TodoForm 
                     addTodo={val => this.addTodo(val)} 
                     text={this.state.text} 
-                    changeValue={event => this.changeValue(event)}
+                    changeValue={this.changeValue.bind(this)}
                     />
                 <TodoList 
                     data={this.state.data}                    
-                    removeTodo={todoID => this.removeTodo(todoID)}
+                    removeTodo={this.removeTodo.bind(this)}
                     />
             </div>            
         );        

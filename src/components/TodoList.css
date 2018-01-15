@@ -9,11 +9,12 @@
     list-style: none;
     display: flex;
     padding: 15px;
+    flex-wrap: wrap;
 }
 
 .itemList {
-    flex: 1;
+    flex: 20%;
     text-align: center;
     border: 1px solid #8F5D5D;
-    padding: 20px;
+    padding: 10px 5px;
 }
